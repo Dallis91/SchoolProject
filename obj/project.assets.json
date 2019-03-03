@@ -12079,11 +12079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\TicketMVC\\TicketMVC.csproj",
+      "projectUniqueName": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\TicketMVC.csproj",
       "projectName": "TicketMVC",
-      "projectPath": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\TicketMVC\\TicketMVC.csproj",
+      "projectPath": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\TicketMVC.csproj",
       "packagesPath": "C:\\Users\\Johnathan\\.nuget\\packages\\",
-      "outputPath": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\TicketMVC\\obj\\",
+      "outputPath": "D:\\Johnathan\\Documents\\GitHub\\schoolProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
