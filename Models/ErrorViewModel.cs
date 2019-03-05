@@ -1,6 +1,6 @@
 using System;
 
-namespace TicketMVC.Models
+namespace schoolProject.Models
 {
     public class ErrorViewModel
     {

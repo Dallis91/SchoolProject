@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TicketMVC.Models;
+using schoolProject.Models;
 
-namespace TicketMVC.Controllers
+namespace schoolProject.Controllers
 {
     public class HomeController : Controller
     {
