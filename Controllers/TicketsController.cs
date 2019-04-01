@@ -53,7 +53,7 @@ namespace ticketApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,ClientPriority,OurPriority,AppointedTo,Status,Attachments")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,ClientPriority,OurPriority,AppointedTo,Status,Attachments")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
