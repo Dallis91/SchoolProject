@@ -59,3 +59,12 @@ D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\
 D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
 D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\AccessDenied.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\ExternalLogin.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.g.cshtml.cs
+D:\Johnathan\Documents\GitHub\schoolProject\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Manage\_Layout.g.cshtml.cs
