@@ -45,7 +45,14 @@ namespace ticketApp.Controllers
         // GET: Tickets/Create
         public IActionResult Create()
         {
-            return View();
+            var ticketType = new Ticket
+            {
+                Type = "Bug",
+                ClientPriority = "Low",
+                OurPriority = "Low",
+                Status = "Ontvangen"
+            };
+            return View(ticketType);
         }
 
         // POST: Tickets/Create

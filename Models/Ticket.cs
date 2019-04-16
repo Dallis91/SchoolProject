@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ticketApp.Models
 {
@@ -10,24 +14,32 @@ namespace ticketApp.Models
             : base(options)
         { }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Ignore<SelectListItem>();
+            builder.Ignore<SelectListGroup>();
+        }
+
         public DbSet<Ticket> Tickets { get; set; }
     }
 
-    public class Ticket
+    [Table("Tickets")]
+    public partial class Ticket
     {
         [Key]
         public int ID { get; set; } // Unique Identifier
 
         [Required]
-        [Display(Name ="Datum ingediend")]
+        [Display(Name = "Datum ingediend")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, HtmlEncode = false)]
         public DateTime DateSubmitted { get; set; } // Timestamp of date ticket is submitted
 
         [Required]
         [Display(Name = "Deadline")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Deadline { get; set; } // Self imposed deadline
 
         [Required]
@@ -52,70 +64,62 @@ namespace ticketApp.Models
 
         [Required]
         [Display(Name = "Omschrijving")]
+        [DataType(DataType.MultilineText)]
         [StringLength(2147483647)]
         public string Description { get; set; } // Discription of the ticket
 
         [Required]
         [Display(Name = "Type")]
-        public TypeEnum EnumType { get; set; } // Type of the ticket
+        public string Type { get; set; } // Type of the ticket -- Opties: Bug, Eis, Wens
 
-        public enum TypeEnum
+        public List<SelectListItem> TypeList { get; } = new List<SelectListItem>
         {
-            [Display(Name = "Bug")]
-            Bug,
-            [Display(Name = "Eis")]
-            Demand,
-            [Display(Name = "Wens")]
-            Wish
-        }
+            new SelectListItem { Value = "Bug", Text = "Bug" },
+            new SelectListItem { Value = "Demand", Text = "Eis" },
+            new SelectListItem { Value = "Wish", Text = "Wens" }
+        };
 
         [Required]
         [Display(Name = "Prioriteit(klant)")]
-        public ClientPrioEnum ClientPriority { get; set; } // Priority given by client
+        public string ClientPriority { get; set; } // Priority given by client -- Opties: Laag, Middelmatig, Hoog
 
-        public enum ClientPrioEnum
+        public List<SelectListItem> CPList { get; } = new List<SelectListItem>
         {
-            [Display(Name = "1")]
-            One,
-            [Display(Name = "2")]
-            Two,
-            [Display(Name = "3")]
-            Three,
-            [Display(Name = "4")]
-            Four,
-            [Display(Name = "5")]
-            Five
-        }
+            new SelectListItem { Value = "1".ToString(), Text = "Laag" },
+            new SelectListItem { Value = "2".ToString(), Text = "Middelmatig".ToString() },
+            new SelectListItem { Value = "3".ToString(), Text = "Hoog".ToString() },
+        };
+
+        public List<SelectListItem> ClientPrioList { get; set; }
 
         [Required]
         [Display(Name = "Prioriteit(intern)")]
-        public int OurPriority { get; set; } // Priority within the company
+        public string OurPriority { get; set; } // Priority within the company -- Opties: Laag, Middelmatig, Hoog
 
-        public enum OurPrioEnum
+        public List<SelectListItem> OPList { get; } = new List<SelectListItem>
         {
-            [Display(Name = "1")]
-            One,
-            [Display(Name = "2")]
-            Two,
-            [Display(Name = "3")]
-            Three,
-            [Display(Name = "4")]
-            Four,
-            [Display(Name = "5")]
-            Five
-        }
+            new SelectListItem { Value = "1", Text = "Laag" },
+            new SelectListItem { Value = "2", Text = "Middelmatig" },
+            new SelectListItem { Value = "3", Text = "Hoog" },
+        };
 
         [Required]
         [Display(Name = "Status")]
         [Range(0, 5)]
-        public int Status { get; set; } // Displays current status -- Opties: Open, Gesloten
+        public string Status { get; set; } // Displays current status -- Opties: Ontvangen, Open, Gesloten
+
+        public List<SelectListItem> StatusList { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "1", Text = "Laag" },
+            new SelectListItem { Value = "2", Text = "Middelmatig" },
+            new SelectListItem { Value = "3", Text = "Hoog" },
+        };
 
         [Required]
         [Display(Name = "Toegewezen aan")]
         [StringLength(50)]
         public string AppointedTo { get; set; } // Name of appointee
 
-        [Required]
         [Display(Name = "Bijlages")]
         public byte[] Attachments { get; set; } // Placeholder for adding attachments
     }

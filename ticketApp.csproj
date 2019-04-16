@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\ticketApp\20190401180509_EditedTypeSets.cs" />
+    <Compile Remove="Migrations\ticketApp\20190401180509_Edited&#xD;&#xA;             &#xD;&#xA;Sets.cs" />
     <Compile Remove="Migrations\ticketApp\20190401180509_EditedTypeSets.Designer.cs" />
     <Compile Remove="Migrations\ticketApp\20190401180831_CorrectedTypeSets.cs" />
     <Compile Remove="Migrations\ticketApp\20190401180831_CorrectedTypeSets.Designer.cs" />
