@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\ticketApp\" />
+    <Folder Include="External Code\" />
   </ItemGroup>
 
 </Project>
