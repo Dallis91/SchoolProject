@@ -39,7 +39,7 @@ namespace ticketApp.Models
         [Required]
         [Display(Name = "Deadline")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, HtmlEncode = false)]
         public DateTime Deadline { get; set; } // Self imposed deadline
 
         [Required]
@@ -80,12 +80,12 @@ namespace ticketApp.Models
         };
 
         [Required]
-        [Display(Name = "Prioriteit(klant)")]
+        [Display(Name = "Ernst")]
         public string ClientPriority { get; set; } // Priority given by client -- Opties: Laag, Middelmatig, Hoog
 
         public List<SelectListItem> CPList { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "1".ToString(), Text = "Laag" },
+            new SelectListItem { Value = "1".ToString(), Text = "Laag".ToString() },
             new SelectListItem { Value = "2".ToString(), Text = "Middelmatig".ToString() },
             new SelectListItem { Value = "3".ToString(), Text = "Hoog".ToString() },
         };
@@ -93,7 +93,7 @@ namespace ticketApp.Models
         public List<SelectListItem> ClientPrioList { get; set; }
 
         [Required]
-        [Display(Name = "Prioriteit(intern)")]
+        [Display(Name = "Prioriteit")]
         public string OurPriority { get; set; } // Priority within the company -- Opties: Laag, Middelmatig, Hoog
 
         public List<SelectListItem> OPList { get; } = new List<SelectListItem>
@@ -105,14 +105,13 @@ namespace ticketApp.Models
 
         [Required]
         [Display(Name = "Status")]
-        [Range(0, 5)]
         public string Status { get; set; } // Displays current status -- Opties: Ontvangen, Open, Gesloten
 
         public List<SelectListItem> StatusList { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "1", Text = "Laag" },
-            new SelectListItem { Value = "2", Text = "Middelmatig" },
-            new SelectListItem { Value = "3", Text = "Hoog" },
+            new SelectListItem { Value = "1", Text = "Open" },
+            new SelectListItem { Value = "2", Text = "Ontvangen" },
+            new SelectListItem { Value = "3", Text = "Gesloten" },
         };
 
         [Required]
@@ -121,6 +120,6 @@ namespace ticketApp.Models
         public string AppointedTo { get; set; } // Name of appointee
 
         [Display(Name = "Bijlages")]
-        public byte[] Attachments { get; set; } // Placeholder for adding attachments
+        public string Attachments { get; set; } // Placeholder for adding attachments
     }
 }

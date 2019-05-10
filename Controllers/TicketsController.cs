@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 using ticketApp.Models;
 
 namespace ticketApp.Controllers
@@ -50,11 +53,10 @@ namespace ticketApp.Controllers
                 Type = "Bug",
                 ClientPriority = "Low",
                 OurPriority = "Low",
-                Status = "Ontvangen"
+                Status = "Open"
             };
             return View(ticketType);
         }
-
         // POST: Tickets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
