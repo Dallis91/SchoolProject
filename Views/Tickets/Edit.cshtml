@@ -1,90 +1,101 @@
 ﻿@model ticketApp.Models.Ticket
 
+@using Microsoft.AspNetCore.Identity
+@using ticketApp.Areas.Identity.Data
+@inject SignInManager<ticketAppUser> SignInManager
+@inject UserManager<ticketAppUser> UserManager
+
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Edit</h1>
 
-<h1>Edit</h1>
-
-<h4>Ticket</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="DateSubmitted" class="control-label"></label>
-                <input asp-for="DateSubmitted" class="form-control" />
-                <span asp-validation-for="DateSubmitted" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Deadline" class="control-label"></label>
-                <input asp-for="Deadline" class="form-control" />
-                <span asp-validation-for="Deadline" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ApplicationName" class="control-label"></label>
-                <input asp-for="ApplicationName" class="form-control" />
-                <span asp-validation-for="ApplicationName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeList" class="control-label"></label>
-                <input asp-for="TypeList" class="form-control" />
-                <span asp-validation-for="TypeList" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientName" class="control-label"></label>
-                <input asp-for="ClientName" class="form-control" />
-                <span asp-validation-for="ClientName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OurSprintList" class="control-label"></label>
-                <input asp-for="OurSprintList" class="form-control" />
-                <span asp-validation-for="OurSprintList" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AppointedTo" class="control-label"></label>
-                <input asp-for="AppointedTo" class="form-control" />
-                <span asp-validation-for="AppointedTo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Attachments" class="control-label"></label>
-                <input asp-for="Attachments" class="form-control" />
-                <span asp-validation-for="Attachments" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <h4>Ticket</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ID" />
+                <div class="form-group">
+                    <label asp-for="DateSubmitted" class="control-label"></label>
+                    <input asp-for="DateSubmitted" class="form-control" />
+                    <span asp-validation-for="DateSubmitted" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Deadline" class="control-label"></label>
+                    <input asp-for="Deadline" class="form-control" />
+                    <span asp-validation-for="Deadline" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApplicationName" class="control-label"></label>
+                    <input asp-for="ApplicationName" class="form-control" />
+                    <span asp-validation-for="ApplicationName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Type" class="control-label"></label>
+                    <select asp-for="Type" asp-items="Model.TypeList" class="form-control"></select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClientName" class="control-label"></label>
+                    <input asp-for="ClientName" class="form-control" />
+                    <span asp-validation-for="ClientName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OurSprintList" class="control-label"></label>
+                    <select asp-for="OurSprintList" asp-items="Model.Sprints" class="form-control"></select>
+                    <span asp-validation-for="OurSprintList" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AppointedTo" class="control-label"></label>
+                    <input asp-for="AppointedTo" class="form-control" />
+                    <span asp-validation-for="AppointedTo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <select asp-for="Status" asp-items="Model.StatusList" class="form-control"></select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Attachments" class="control-label"></label>
+                    <input type="file" asp-for="Attachments" class="form-control" />
+                    <span asp-validation-for="Attachments" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+}
+else
+{
+    <h1>Uw moet ingelogd zijn om deze informatie in te zien</h1>
 }

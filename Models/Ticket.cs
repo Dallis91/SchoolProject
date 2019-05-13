@@ -85,9 +85,9 @@ namespace ticketApp.Models
 
         public List<SelectListItem> Sprints { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "1", Text = "Sprint 1" },
-            new SelectListItem { Value = "2", Text = "Sprint 2" },
-            new SelectListItem { Value = "3", Text = "Sprint 3" },
+            new SelectListItem { Value = "Sprint 1", Text = "Sprint 1" },
+            new SelectListItem { Value = "Sprint 2", Text = "Sprint 2" },
+            new SelectListItem { Value = "Sprint 3", Text = "Sprint 3" },
         };
 
         [Required]
@@ -96,9 +96,9 @@ namespace ticketApp.Models
 
         public List<SelectListItem> StatusList { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "1", Text = "Open" },
-            new SelectListItem { Value = "2", Text = "Ontvangen" },
-            new SelectListItem { Value = "3", Text = "Gesloten" },
+            new SelectListItem { Value = "Open", Text = "Open".ToString() },
+            new SelectListItem { Value = "Bezig", Text = "Bezig".ToString() },
+            new SelectListItem { Value = "Gesloten", Text = "Gesloten".ToString() },
         };
 
         [Required]
@@ -108,5 +108,6 @@ namespace ticketApp.Models
 
         [Display(Name = "Bijlages")]
         public string Attachments { get; set; } // Placeholder for adding attachments
+        // TODO: Add code to manage attachments, mainly jpg,png & dump files
     }
 }
