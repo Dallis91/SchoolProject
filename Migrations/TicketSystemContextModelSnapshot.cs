@@ -39,9 +39,6 @@ namespace ticketApp.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("ClientPriority")
-                        .IsRequired();
-
                     b.Property<DateTime>("DateSubmitted");
 
                     b.Property<DateTime>("Deadline");
@@ -54,7 +51,7 @@ namespace ticketApp.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("OurPriority")
+                    b.Property<string>("OurSprintList")
                         .IsRequired();
 
                     b.Property<string>("Status")

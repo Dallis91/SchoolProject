@@ -22,8 +22,7 @@ namespace ticketApp.Migrations
                     Title = table.Column<string>(maxLength: 50, nullable: false),
                     Description = table.Column<string>(maxLength: 2147483647, nullable: false),
                     Type = table.Column<string>(nullable: false),
-                    ClientPriority = table.Column<string>(nullable: false),
-                    OurPriority = table.Column<string>(nullable: false),
+                    OurSprintList = table.Column<string>(nullable: false),
                     Status = table.Column<string>(nullable: false),
                     AppointedTo = table.Column<string>(maxLength: 50, nullable: false),
                     Attachments = table.Column<string>(nullable: true)

@@ -75,32 +75,19 @@ namespace ticketApp.Models
         public List<SelectListItem> TypeList { get; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "Bug", Text = "Bug" },
-            new SelectListItem { Value = "Demand", Text = "Eis" },
-            new SelectListItem { Value = "Wish", Text = "Wens" }
+            new SelectListItem { Value = "Eis", Text = "Eis" },
+            new SelectListItem { Value = "Wens", Text = "Wens" }
         };
 
         [Required]
-        [Display(Name = "Ernst")]
-        public string ClientPriority { get; set; } // Priority given by client -- Opties: Laag, Middelmatig, Hoog
+        [Display(Name = "Sprint")]
+        public string OurSprintList { get; set; } // Priority within the company -- Opties: Laag, Middelmatig, Hoog
 
-        public List<SelectListItem> CPList { get; } = new List<SelectListItem>
+        public List<SelectListItem> Sprints { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "1".ToString(), Text = "Laag".ToString() },
-            new SelectListItem { Value = "2".ToString(), Text = "Middelmatig".ToString() },
-            new SelectListItem { Value = "3".ToString(), Text = "Hoog".ToString() },
-        };
-
-        public List<SelectListItem> ClientPrioList { get; set; }
-
-        [Required]
-        [Display(Name = "Prioriteit")]
-        public string OurPriority { get; set; } // Priority within the company -- Opties: Laag, Middelmatig, Hoog
-
-        public List<SelectListItem> OPList { get; } = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "1", Text = "Laag" },
-            new SelectListItem { Value = "2", Text = "Middelmatig" },
-            new SelectListItem { Value = "3", Text = "Hoog" },
+            new SelectListItem { Value = "1", Text = "Sprint 1" },
+            new SelectListItem { Value = "2", Text = "Sprint 2" },
+            new SelectListItem { Value = "3", Text = "Sprint 3" },
         };
 
         [Required]
