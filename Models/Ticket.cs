@@ -96,9 +96,9 @@ namespace ticketApp.Models
 
         public List<SelectListItem> StatusList { get; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "Open", Text = "Open".ToString() },
-            new SelectListItem { Value = "Bezig", Text = "Bezig".ToString() },
-            new SelectListItem { Value = "Gesloten", Text = "Gesloten".ToString() },
+            new SelectListItem { Value = "Open", Text = "Open" },
+            new SelectListItem { Value = "Bezig", Text = "Bezig" },
+            new SelectListItem { Value = "Gesloten", Text = "Gesloten" },
         };
 
         [Required]
