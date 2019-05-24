@@ -10,14 +10,14 @@ using ticketApp.Models;
 namespace ticketApp.Migrations
 {
     [DbContext(typeof(TicketSystemContext))]
-    [Migration("20190513153708_InitialCreate")]
+    [Migration("20190520094950_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
