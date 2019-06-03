@@ -1,2 +1,234 @@
-﻿body {
+/* Begin CSS voor buttons */
+
+.opslaan-button, .nieuwe-ticket-button {
+    -moz-box-shadow: inset 0px 1px 0px 0px #9acc85;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #9acc85;
+    box-shadow: inset 0px 1px 0px 0px #9acc85;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+    background: -moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+    background: -webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+    background: -o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+    background: -ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+    background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+    background-color: #74ad5a;
+    border: 1px solid #3b6e22;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
 }
+
+    .opslaan-button, .nieuwe-ticket-button:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
+        background: -moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+        background: -webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+        background: -o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+        background: -ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+        background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
+        background-color: #68a54b;
+        color: white;
+    }
+
+    .opslaan-button, .nieuwe-ticket-button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.login-button {
+    background-color: #44c767;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 5px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+    .login-button:hover {
+        background-color: #5cbf2a;
+        color: white;
+    }
+
+    .login-button:active {
+        position: relative;
+        top: 1px;
+    }
+
+.register-button {
+    background-color: #bcbcbc;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px 15px;
+    text-decoration: none;
+}
+
+    .register-button:hover {
+        background-color: #939292;
+        color: white;
+    }
+
+    .register-button:active {
+        position: relative;
+        top: 1px;
+    }
+
+
+
+/* Eind CSS voor buttons */
+
+/* mijn css */
+
+.nav-item a {
+    border-bottom: 1px solid black;
+}
+
+    .nav-item a i {
+        padding-top: 10px;
+        display: block;
+        font-size: 40px;
+        color: #5e5c5c;
+        text-align: center;
+    }
+
+.menu-tekst {
+    display: none;
+    text-align: center;
+}
+
+.nav-item a:hover .menu-tekst {
+    display: block;
+}
+
+body {
+    font-size: .875rem;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+    .sidebar .nav-link .feather {
+        margin-right: 4px;
+        color: #999;
+    }
+
+    .sidebar .nav-link.active {
+        color: #007bff;
+    }
+
+        .sidebar .nav-link:hover .feather,
+        .sidebar .nav-link.active .feather {
+            color: inherit;
+        }
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+/*
+ * Content
+ */
+
+[role="main"] {
+    padding-top: 133px; /* Space for fixed navbar */
+}
+
+@media (min-width: 768px) {
+    [role="main"] {
+        padding-top: 48px; /* Space for fixed navbar */
+    }
+}
+
+/*
+ * Navbar
+ */
+
+.bg-dark {
+    background-color: #9bc232 !important;
+}
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: #9bc232;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: #fff;
+    /*background-color: rgba(255, 255, 255, .1);*/
+    border-color: rgba(255, 255, 255, .1);
+}
+
+    .form-control-dark:focus {
+        border-color: transparent;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+    }
