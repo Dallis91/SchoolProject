@@ -11,90 +11,92 @@
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <h1>Details</h1>
 
-    <div>
-        <h4>Ticket</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.DateSubmitted)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.DateSubmitted)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Deadline)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Deadline)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ApplicationName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ApplicationName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Type)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ClientName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ClientName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.OurSprintList)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.OurSprintList)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.AppointedTo)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.AppointedTo)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Status)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Status)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Attachments)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Attachments)
-            </dd>
-        </dl>
+    <h1>@Html.DisplayFor(model => model.Title)</h1>
+    <hr />
+
+    <div class="row row-eq-height details-row">
+        <div class="col-md-8">
+            <div class="category-title">
+                <h5>Details</h5><span class="line"></span>
+            </div>
+            <div class="ticket-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Ticket nummer:<span>42012</span></p>
+                        <p>@Html.DisplayNameFor(model => model.Type):<span>@Html.DisplayFor(model => model.Type)</span></p>
+                        <p>@Html.DisplayNameFor(model => model.Status):<span>@Html.DisplayFor(model => model.Status)</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>@Html.DisplayNameFor(model => model.ApplicationName):<span>@Html.DisplayFor(model => model.ApplicationName)</span></p>
+                        <p>@Html.DisplayNameFor(model => model.OurSprintList):<span>@Html.DisplayFor(model => model.OurSprintList)</span></p>
+                        <p>@Html.DisplayNameFor(model => model.AppointedTo):<span>@Html.DisplayFor(model => model.AppointedTo)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="category-title">
+                <h5>Details klant</h5><span class="small-line"></span>
+                    <div class="ticket-details">
+                        <p>@Html.DisplayNameFor(model => model.ClientName):<span>@Html.DisplayFor(model => model.ClientName)</span></p>
+                        <p>@Html.DisplayNameFor(model => model.Email):<span>@Html.DisplayFor(model => model.Email)</span></p>
+                    </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <a class="btn btn-primary" asp-action="Index">Terug</a> |
-        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ID">Wijzig</a> |
-        <a class="btn btn-danger float-right" asp-action="Delete" asp-route-id="@Model.ID">Verwijder</a>
+
+    <div class="row row-eq-height details-row">
+        <div class="col-md-8">
+            <div class="category-title">
+                <h5>@Html.DisplayNameFor(model => model.Description)</h5><span class="line"></span>
+                <div class="ticket-details">
+                    <p class="light-font">@Html.DisplayFor(model => model.Description)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="category-title">
+                <h5>Datums</h5><span class="small-line"></span>
+                <div class="ticket-details">
+                    <p>@Html.DisplayNameFor(model => model.DateSubmitted):<span>@Html.DisplayFor(model => model.DateSubmitted)</span></p>
+                    <p>@Html.DisplayNameFor(model => model.Deadline):<span>@Html.DisplayFor(model => model.Deadline)</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-eq-height details-row">
+        <div class="col-md-8">
+            <div class="category-title">
+                <h5>@Html.DisplayNameFor(model => model.Attachments)</h5><span class="line"></span>
+                <div class="ticket-details">
+                    <p class="light-font">@Html.DisplayFor(model => model.Attachments)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-eq-height details-row">
+        <div class="col-md-8">
+            <div class="category-title">
+                <h5>Activiteit</h5><span class="line"></span>
+                <div class="ticket-details">
+                    <div class="comment">
+                        <p>Stefan heeft een comment toegevoegd - 2 min geleden</p>
+                        <p class="light-font">Hier komt de comment te staan</p>
+                        <span class="comment-line"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="button-container">
+                <div class="btn-inside">
+                    <a class="btn btn-primary" asp-action="Index">Terug</a> |
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ID">Wijzig</a>
+                    <a class="btn btn-danger float-right" asp-action="Delete" asp-route-id="@Model.ID">Verwijder</a>
+                </div>
+            </div>
+        </div>
     </div>
 }
 else

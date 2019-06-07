@@ -54,3 +54,84 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Ticket details pagina */
+
+.details-row {
+    padding: 15px 0;
+}
+
+.category-title h5 {
+    display: inline-block;
+    padding: 0 5px 0 0;
+}
+
+.category-title .line {
+    display: inline-block;
+    width: 80%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 4px;
+}
+
+.category-title span.small-line {
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 4px;
+}
+
+.ticket-details {
+    padding: 5px 15px;
+}
+
+.ticket-details p {
+    font-weight: 500;
+    margin: 0;
+}
+
+.ticket-details p.light-font {
+    font-weight: 400;
+}
+
+.ticket-details span {
+    float: right;
+    font-weight: 400;
+    padding-right: 60px;
+}
+
+.comment span.comment-line {
+    width: 90%;
+    float: left;
+    height: 1px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+    position: relative;
+    height: 100%;
+}
+
+.button-container .btn-inside {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.button-container .btn-inside .btn-danger {
+    text-align: right;
+}
+
+/* Dashboard page */
+
+.ticket-item {
+    cursor: pointer;
+    transition: ease all 300ms;
+    -webkit-transition: ease all 300ms;
+}
+
+.ticket-item:hover {
+    background-color: #007bff;
+}
