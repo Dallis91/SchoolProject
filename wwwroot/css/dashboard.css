@@ -279,3 +279,15 @@ body {
         border-color: transparent;
         box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
     }
+
+/* CSS DASHBOARD BUTTONS */
+
+.btn-primary{
+    background-color: #808080;
+    border-color: #5e5c5c;
+}
+
+.btn-primary:hover{
+    background-color: #5e5c5c;
+    border-color: #5e5c5c;
+}

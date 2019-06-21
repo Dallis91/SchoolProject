@@ -133,6 +133,6 @@ body {
 }
 
 .ticket-item:hover {
-    background-color: #007bff;
-    color: #fff;
+/*    background-color: #007bff;*/
+    background-color: rgba(232, 232, 232, 0.9);
 }
