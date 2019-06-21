@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ticketApp.Models.Ticket>
+
+@using Microsoft.AspNetCore.Identity
+@using ticketApp.Areas.Identity.Data
+@inject SignInManager<ticketAppUser> SignInManager
+@inject UserManager<ticketAppUser> UserManager
+
+@{
+    ViewData["Title"] = "Archive";
+    Layout = "~/Views/Shared/_NavLayout.cshtml";
+}
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Dashboard</h1>
+
+    <hr />
+    <a asp-action="Create" class="btn btn-primary float-left">Maak nieuwe ticket aan</a>
+    <a asp-action="Dump" class="btn btn-primary float-right">Exporteer Tickets</a>
+    <br />
+    <br />
+    <table class="table col-12">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateSubmitted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deadline)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OurSprintList)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointedTo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr onclick="location.href = '@(Url.Action("Details","Tickets", new { @item.ID } ))'" class="ticket-item">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateSubmitted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deadline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OurSprintList)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AppointedTo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>Uw moet ingelogd zijn om deze informatie in te zien</h1>
+}
