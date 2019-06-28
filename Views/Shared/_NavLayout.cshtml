@@ -27,48 +27,21 @@
 <body>
     <header>
         <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/trentonsite.png" width="200" style="padding-bottom: 10px;"></a>
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/trentonsite.png" width="200" style="padding-bottom: 10px;"></a>
 
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <partial name="_LoginPartial.cshtml">
-        </li>
-     </ul>
-</nav>
-<div style='margin-top: 30px;'></div>
-
-
-<div class="container-fluid">
-  <div class="row">
-  @if (SignInManager.IsSignedIn(User))
-{
-    <nav class="col-md-0.5 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column" style="padding-top: 40px;">
-          <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Tickets" asp-action="Index">
-                <i class="fas fa-home"></i>
-                <span class="menu-tekst">Home</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" asp-controller="Tickets" asp-action="Create">
-                <i class="fas fa-plus"></i>
-                <span class="menu-tekst">Nieuw</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" asp-controller="Tickets" asp-action="Archive">
-            <i class="fas fa-check"></i>
-              <span class="menu-tekst">Lijst</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-	<div style='margin-top: 30px;'></div>
-	}
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <partial name="_LoginPartial.cshtml">
+                </li>
+            </ul>
+        </nav>
+        <div style='margin-top: 120px;'></div>
     </header>
+
+
+    <div class="container-fluid">
+        <partial name="_NavPartial.cshtml" />
+    </div>
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
