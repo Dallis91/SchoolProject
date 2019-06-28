@@ -109,5 +109,8 @@ namespace ticketApp.Models
         [Display(Name = "Bijlages")]
         public string Attachments { get; set; } // Placeholder for adding attachments
         // TODO: Add code to manage attachments, mainly jpg,png & dump files
+
+        [Display(Name = "Archive")]
+        public bool IsArchived { get; set; }
     }
 }

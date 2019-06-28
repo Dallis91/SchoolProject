@@ -10,7 +10,7 @@ using ticketApp.Models;
 namespace ticketApp.Migrations.ticketApp
 {
     [DbContext(typeof(ticketAppContext))]
-    [Migration("20190527092207_InitialCreate")]
+    [Migration("20190628115434_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -24,7 +24,8 @@ namespace ticketApp.Controllers
         // GET: Tickets
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Tickets.ToListAsync());
+            var defaultView = await _context.Tickets.Where(e => !e.IsArchived).ToListAsync();
+                return View(defaultView);
         }
 
         // GET: Tickets/Details/5
@@ -147,9 +148,15 @@ namespace ticketApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var ticket = await _context.Tickets.FindAsync(id);
-            _context.Tickets.Remove(ticket);
+            // _context.Tickets.Remove(ticket);
+            ticket.IsArchived = true;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Archive(Ticket ticket)
+        {
+            var ArchivedView = await _context.Tickets.Where(e => e.IsArchived).ToListAsync();
+            return View(ArchivedView);
         }
 
         private bool TicketExists(int id)

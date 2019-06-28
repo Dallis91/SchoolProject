@@ -51,6 +51,8 @@ namespace ticketApp.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<bool>("IsArchived");
+
                     b.Property<string>("OurSprintList")
                         .IsRequired();
 
