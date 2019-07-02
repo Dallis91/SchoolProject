@@ -5,30 +5,36 @@
 
 <div class="row">
     @if (SignInManager.IsSignedIn(User))
-            {
-    <nav class="col-md-0.5 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-            <ul class="nav flex-column" style="padding-top: 40px;">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Tickets" asp-action="Index">
-                        <i class="fas fa-home"></i>
-                        <span class="menu-tekst">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Tickets" asp-action="Create">
-                        <i class="fas fa-plus"></i>
-                        <span class="menu-tekst">Create<br />Ticket</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Tickets" asp-action="Archive">
-                        <i class="fas fa-check"></i>
-                        <span class="menu-tekst">Archived<br>Tickets</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-            }
+    {
+        <nav class="col-md-0.5 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column" style="padding-top: 40px;">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Tickets" asp-action="Index">
+                            <i class="fas fa-home"></i>
+                            <span class="menu-tekst">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Tickets" asp-action="Create">
+                            <i class="fas fa-plus"></i>
+                            <span class="menu-tekst">Create<br />Ticket</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Tickets" asp-action="ArchiveIndex">
+                            <i class="fas fa-check"></i>
+                            <span class="menu-tekst">Archived<br />Tickets</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Tickets" asp-action="Dump">
+                            <i class="fas fa-file-excel"></i>
+                            <span class="menu-tekst">Exporteer<br />Tickets</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    }
 </div>

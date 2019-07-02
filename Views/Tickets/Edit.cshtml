@@ -11,7 +11,7 @@
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <h1>Edit</h1>
+    <h1>Wijzig Ticket</h1>
 
     <h4>Ticket</h4>
     <hr />
@@ -61,9 +61,9 @@
                     <span asp-validation-for="ClientName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="OurSprintList" class="control-label"></label>
-                    <select asp-for="OurSprintList" asp-items="Model.Sprints" class="form-control"></select>
-                    <span asp-validation-for="OurSprintList" class="text-danger"></span>
+                    <label asp-for="SprintList" class="control-label"></label>
+                    <select asp-for="SprintList" asp-items="Model.Sprints" class="form-control"></select>
+                    <span asp-validation-for="SprintList" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="AppointedTo" class="control-label"></label>
@@ -88,7 +88,7 @@
     </div>
 
     <div>
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">Terug naar dashboard</a>
     </div>
 
     @section Scripts {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,7 +14,6 @@ namespace ticketApp.Models
         public TicketSystemContext(DbContextOptions<TicketSystemContext> options)
             : base(options)
         { }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -81,7 +81,7 @@ namespace ticketApp.Models
 
         [Required]
         [Display(Name = "Sprint")]
-        public string OurSprintList { get; set; } // Priority within the company -- Opties: Laag, Middelmatig, Hoog
+        public string SprintList { get; set; } // Priority within the company -- Opties: Sprint 1, 2 & 3
 
         public List<SelectListItem> Sprints { get; } = new List<SelectListItem>
         {
@@ -92,7 +92,7 @@ namespace ticketApp.Models
 
         [Required]
         [Display(Name = "Status")]
-        public string Status { get; set; } // Displays current status -- Opties: Ontvangen, Open, Gesloten
+        public string Status { get; set; } // Displays current status -- Opties: Open, Bezig, Gesloten
 
         public List<SelectListItem> StatusList { get; } = new List<SelectListItem>
         {
@@ -109,6 +109,10 @@ namespace ticketApp.Models
         [Display(Name = "Bijlages")]
         public string Attachments { get; set; } // Placeholder for adding attachments
         // TODO: Add code to manage attachments, mainly jpg,png & dump files
+
+        [Display(Name ="Commentaar")]
+        public string Comments { get; set; }
+
 
         [Display(Name = "Archive")]
         public bool IsArchived { get; set; }

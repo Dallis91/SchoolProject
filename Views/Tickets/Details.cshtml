@@ -23,13 +23,13 @@
             <div class="ticket-details">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>Ticket nummer:<span>42012</span></p>
+                        <p>Ticket ID:<span>@Html.DisplayFor(model => model.ID)</span></p>
                         <p>@Html.DisplayNameFor(model => model.Type):<span>@Html.DisplayFor(model => model.Type)</span></p>
                         <p>@Html.DisplayNameFor(model => model.Status):<span>@Html.DisplayFor(model => model.Status)</span></p>
                     </div>
                     <div class="col-md-6">
                         <p>@Html.DisplayNameFor(model => model.ApplicationName):<span>@Html.DisplayFor(model => model.ApplicationName)</span></p>
-                        <p>@Html.DisplayNameFor(model => model.OurSprintList):<span>@Html.DisplayFor(model => model.OurSprintList)</span></p>
+                        <p>@Html.DisplayNameFor(model => model.SprintList):<span>@Html.DisplayFor(model => model.SprintList)</span></p>
                         <p>@Html.DisplayNameFor(model => model.AppointedTo):<span>@Html.DisplayFor(model => model.AppointedTo)</span></p>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="btn-inside">
                     <a class="btn btn-primary" asp-action="Index">Terug</a> |
                     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ID">Wijzig</a>
-                    <a class="btn btn-danger float-right" asp-action="Delete" asp-route-id="@Model.ID">Verwijder</a>
+                    <a class="btn btn-danger float-right" asp-action="Archive" asp-route-id="@Model.ID">Archiveer</a>
                 </div>
             </div>
         </div>

@@ -22,10 +22,20 @@ namespace ticketApp.Controllers
         }
 
         // GET: Tickets
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var defaultView = await _context.Tickets.Where(e => !e.IsArchived).ToListAsync();
-                return View(defaultView);
+            var items = from i in defaultView select i;
+            items.OrderBy(i => i.DateSubmitted );
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Title.Contains(searchString)
+                                       || s.ClientName.Contains(searchString)
+                                       || s.Description.Contains(searchString)
+                                       || s.AppointedTo.Contains(searchString));
+            }
+
+            return View(defaultView);
         }
 
         // GET: Tickets/Details/5
@@ -52,7 +62,7 @@ namespace ticketApp.Controllers
             var ticketType = new Ticket
             {
                 Type = "Bug",
-                OurSprintList = "Low",
+                SprintList = "Low",
                 Status = "Open"
             };
             return View(ticketType);
@@ -62,7 +72,7 @@ namespace ticketApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,OurSprintList,AppointedTo,Status,Attachments")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,SprintList,AppointedTo,Status,Attachments")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +104,7 @@ namespace ticketApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,OurSprintList,AppointedTo,Status,Attachments")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,SprintList,AppointedTo,Status,Attachments")] Ticket ticket)
         {
             if (id != ticket.ID)
             {
@@ -124,8 +134,8 @@ namespace ticketApp.Controllers
             return View(ticket);
         }
 
-        // GET: Tickets/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Tickets/Archive/5
+        public async Task<IActionResult> Archive(int? id)
         {
             if (id == null)
             {
@@ -142,20 +152,36 @@ namespace ticketApp.Controllers
             return View(ticket);
         }
 
-        // POST: Tickets/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Tickets/Archive/5
+        [HttpPost, ActionName("Archive")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> ArchiveConfirmed(int id)
         {
             var ticket = await _context.Tickets.FindAsync(id);
-            // _context.Tickets.Remove(ticket);
-            ticket.IsArchived = true;
+            if(ticket.IsArchived == false)
+            {
+                ticket.IsArchived = true;
+            } else
+            {
+                ticket.IsArchived = false;
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Archive(Ticket ticket)
+        public async Task<IActionResult> ArchiveIndex(Ticket ticket, String searchString)
         {
             var ArchivedView = await _context.Tickets.Where(e => e.IsArchived).ToListAsync();
+            var items = from i in ArchivedView select i;
+            items.OrderBy(i => i.DateSubmitted);
+            ViewData["CurrentFilter"] = searchString;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Title.Contains(searchString)
+                                       || s.ClientName.Contains(searchString)
+                                       || s.Description.Contains(searchString)
+                                       || s.Type.Contains(searchString)
+                                       || s.AppointedTo.Contains(searchString));
+            }
             return View(ArchivedView);
         }
 

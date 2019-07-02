@@ -10,8 +10,8 @@ using ticketApp.Models;
 namespace ticketApp.Migrations
 {
     [DbContext(typeof(TicketSystemContext))]
-    [Migration("20190628121732_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190629152315_CreateNewTicketSystem")]
+    partial class CreateNewTicketSystem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,8 @@ namespace ticketApp.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("Comments");
+
                     b.Property<DateTime>("DateSubmitted");
 
                     b.Property<DateTime>("Deadline");
@@ -55,7 +57,7 @@ namespace ticketApp.Migrations
 
                     b.Property<bool>("IsArchived");
 
-                    b.Property<string>("OurSprintList")
+                    b.Property<string>("SprintList")
                         .IsRequired();
 
                     b.Property<string>("Status")
