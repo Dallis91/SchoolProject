@@ -11,8 +11,7 @@
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <h1>Create</h1>
-    <h2>Ticket</h2>
+    <h1>Nieuwe Ticket</h1>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -73,12 +72,14 @@
                     <select asp-for="Status" asp-items="Model.StatusList" class="form-control"></select>
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
+                <!--
                 <div class="form-group">
                     <label asp-for="Attachments" class="control-label"></label>
                     <input type="file" asp-for="Attachments" class="form-control" />
                     <span asp-validation-for="Attachments" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                -->
+                    <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-dark" />
                 </div>
             </form>

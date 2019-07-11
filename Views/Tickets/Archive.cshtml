@@ -58,7 +58,7 @@
                 @Html.DisplayNameFor(model => model.TypeList)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.TypeList)
+                @Html.DisplayFor(model => model.Type)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.ClientName)
@@ -84,18 +84,12 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Status)
             </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Attachments)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Attachments)
-            </dd>
         </dl>
 
         <form asp-action="Archive">
             <input type="hidden" asp-for="ID" />
             <input type="submit" value="Archiveer" class="btn btn-danger" /> |
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
         </form>
     </div>
 }

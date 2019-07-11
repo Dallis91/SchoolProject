@@ -33,13 +33,13 @@ namespace ticketApp.Models
         [Required]
         [Display(Name = "Datum ingediend")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, HtmlEncode = false)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true, HtmlEncode = true)]
         public DateTime DateSubmitted { get; set; } // Timestamp of date ticket is submitted
 
         [Required]
         [Display(Name = "Deadline")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, HtmlEncode = false)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true, HtmlEncode = false)]
         public DateTime Deadline { get; set; } // Self imposed deadline
 
         [Required]
@@ -110,9 +110,8 @@ namespace ticketApp.Models
         public string Attachments { get; set; } // Placeholder for adding attachments
         // TODO: Add code to manage attachments, mainly jpg,png & dump files
 
-        [Display(Name ="Commentaar")]
-        public string Comments { get; set; }
-
+        [Display(Name = "Commentaar")]
+        public string Comments { get; }
 
         [Display(Name = "Archive")]
         public bool IsArchived { get; set; }

@@ -29,7 +29,17 @@ Entity Framework(EF) Core is een lichtgewicht en uitbreidbare versie van de popu
 
 ## Installatie procedure website
 
-Om een <span>ASP.NET</span> Core webapp te draaien heb je de volgende nodig;
+Om deze applicatie te draaien in een ontwikkelings situatie moet u .Net core 2.2 of .Net 4.8 hebben, dit kunt u [hier](https://dotnet.microsoft.com/download) downloaden als dit nodig is.
 
-- Windows Server 2012
-- IIS >8.0
+### Procedure (Eerste Build)
+
+Deze website gebruik zoals eerder vermeld Entity Framework Core, om de database te bouwen die hoort bij de webapp moet je, in powershell of Package Manager Console(Visual Studio), de volgende commando's uitvoeren;
+<br />
+**NOTE: [Tekst hier] Betekend dat u zelf mag invullen wat hierin komt te staan**
+
+- Add-Migration [Tekst hier] -Context TicketAppContext
+- Update-Database [Tekst hier] -Context TicketAppContext
+- Add-Migration [Tekst hier] -Context TicketSystemContext
+- Update-Database [Tekst hier] -Context TicketSystemContext
+
+Na deze commando's uit te voeren heb je een werkend versie van de WebApp. Doordat er geen communicatie met betrekking tot de configuratie van de server is deze op een generieke manier gemaakt. Als deze veranderd moet worden kunt u de configuratie vinden in de Startup.cs bestand onder de variabel connection.

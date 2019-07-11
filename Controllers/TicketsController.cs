@@ -25,6 +25,7 @@ namespace ticketApp.Controllers
         public async Task<IActionResult> Index(string searchString)
         {
             var defaultView = await _context.Tickets.Where(e => !e.IsArchived).ToListAsync();
+            // 
             var items = from i in defaultView select i;
             items.OrderBy(i => i.DateSubmitted );
             if (!string.IsNullOrEmpty(searchString))
@@ -104,7 +105,7 @@ namespace ticketApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,SprintList,AppointedTo,Status,Attachments")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,DateSubmitted,Deadline,Title,Email,ApplicationName,Description,Type,ClientName,SprintList,AppointedTo,Status,Comments")] Ticket ticket)
         {
             if (id != ticket.ID)
             {
@@ -173,7 +174,6 @@ namespace ticketApp.Controllers
             var ArchivedView = await _context.Tickets.Where(e => e.IsArchived).ToListAsync();
             var items = from i in ArchivedView select i;
             items.OrderBy(i => i.DateSubmitted);
-            ViewData["CurrentFilter"] = searchString;
             if (!String.IsNullOrEmpty(searchString))
             {
                 items = items.Where(s => s.Title.Contains(searchString)
@@ -183,6 +183,22 @@ namespace ticketApp.Controllers
                                        || s.AppointedTo.Contains(searchString));
             }
             return View(ArchivedView);
+        }
+
+        public async Task<IActionResult> ExcelExport(String searchString)
+        {
+            var ExcelView = await _context.Tickets.Where(e => e.IsArchived).ToListAsync();
+            var items = from i in ExcelView select i;
+            items.OrderBy(i => i.DateSubmitted);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                items = items.Where(s => s.Title.Contains(searchString)
+                                       || s.ClientName.Contains(searchString)
+                                       || s.Description.Contains(searchString)
+                                       || s.Type.Contains(searchString)
+                                       || s.AppointedTo.Contains(searchString));
+            }
+            return View(ExcelView);
         }
 
         private bool TicketExists(int id)
